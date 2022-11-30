@@ -22,7 +22,7 @@ img{
 
 body, html{
     font-size: toVw(13px);
-    font-family: 'Lato';
+    font-family: 'Lato', sans-serif;
 }
 
 a{
@@ -73,6 +73,13 @@ a{
             }
         }
     }
+    .button-add{
+        background-color: $c-black;
+        opacity: 0.7;
+        width: 100%;
+        margin-top: toVw(340px);
+    }
+
 }
 
 .navigation-panel{
@@ -204,7 +211,7 @@ a{
         @include flex-between();
         padding-bottom: toVw(20px);
         padding-left: toVw(24px);
-        border-bottom: solid toVw(1px) $c-grey;
+        border-bottom: solid toVw(1px) $c-light-grey;
         &__name{
             font-weight: 700;
             font-size: toVw(20px);
@@ -320,25 +327,25 @@ a{
     &-message{
         display: flex;
         margin-top: toVw(18.5px);
+        margin-bottom: toVw(12.5px);
         padding-left: toVw(24px);
+        position: relative;
 
-        &__profile-photo{
+        img{
             width: toVw(32px);
             height: toVw(32px);
             margin-right: toVw(12px);
-            img{
-                border-radius: toVw(5px);
-            }
+            border-radius: toVw(5px);
         }
 
         &-section__top-block{
             display: flex;
-            &-name{
+            .name{
                 font-weight: 700;
                 font-size: toVw(12px);
                 margin-right: toVw(8px);
             }
-            &-time{
+            .time{
                 font-weight: 400;
                 font-size: toVw(12px);
                 color: $c-grey;
@@ -350,19 +357,18 @@ a{
             line-height: toVw(20px);
             position: relative;
 
-            .photo-in-bali{
-                width: toVw(266.5px);
-                margin-top: toVw(17px);
-                border-radius: toVw(5px);
-
-                &::after{
-                    @include after();
-                    @include bg-default();
-                    background-image: url(../img/Emojis-love-it.svg);
-                    width: toVw(100px);
-                    height: toVw(100px);
-                    top: toVw(240px);
-                    left: toVw(240px);
+            &-img{
+                position: relative;
+                img{
+                    width: toVw(266.5px);
+                    height: toVw(200px);
+                    border-radius: toVw(3px);
+                    margin-top: toVw(17px);
+                }
+                .message-reaction{
+                    position: absolute;
+                    right: toVw(154px);
+                    bottom: toVw(-6px);
                 }
             }
 
@@ -392,37 +398,83 @@ a{
         }
     }
 
-    &-dividing{
-        @include flex-between();
-        margin-top: toVw(13.2px);
-        padding-left: toVw(24px);
-        padding-right: toVw(29px);
-        &-line{
-            width: toVw(332px);
-            color: $c-black;
-            opacity: 0.16;
-            padding-top: toVw(7px);
+    .message-reaction{
+        background-color: #fff;
+        box-shadow: 0 toVw(2px) toVw(8px) rgba(0, 0, 0, 0.14);
+        border-radius: toVw(5px);
+        width: toVw(44px);
+        height: toVw(24px);
+        padding-left: toVw(5.5px);
+        padding-right: toVw(5.5px);
+        display: flex;
+        align-items: center;
+        &-emoji{
+            margin-right: toVw(4.5px);
+            font-size: toVw(15px);
         }
-        &-date{
-            color: $c-grey;
+        &-counter{
+            font-size: toVw(12px);
         }
     }
+
+    &-message-date{
+        text-align: center;
+        position: relative;
+        p{
+            position: relative;
+            z-index: 2;
+            background-color: #fff;
+            display: block;
+            width: fit-content;
+            margin: auto;
+            padding: 0 toVw(14.5px);
+            color: $c-dark-grey;
+        }
+        &::after{
+            @include after();
+            height: toVw(1px);  
+            background-color: $c-light-grey;
+            width: 100%;
+            left: 50%;
+            top: 50%;
+            transform: translateX(-50%);
+            z-index: 1;
+        }
+    }
+    
 
     &-typing-message{
         @include flex-between;
         padding: toVw(24.5px) toVw(29px) toVw(35.5px) toVw(24px);
-        border-top: solid toVw(1px) $c-grey;
+        border-top: solid toVw(1px) $c-light-grey;
         margin-top: toVw(22px);
 
         &-section{
             display: flex;
 
-            img{
-                margin-right: toVw(18.5px);
+            label{
+                img{
+                    width: toVw(13.5px);
+                    height: toVw(22px);
+                    margin-right: toVw(18.5px);
+                    cursor: pointer;
+                }
+    
+                .attachment{
+                    display: none;
+                }
+            }
+
+            .voice-msg{
+                border: none;
+                background-color: #fff;
+                width: toVw(13.5px);
+                height: toVw(22px);
+                margin-right: toVw(21.5px);
                 cursor: pointer;
             }
 
-            input{
+            .message{
                 border: none;
                 font-size: toVw(14px);
                 font-weight: 400;
@@ -430,13 +482,137 @@ a{
             }
         }
 
-        &-emojibar{
-            width: toVw(20px);
-            height: toVw(20px);
-            cursor: pointer;
-            img:hover{
-                width: toVw(25px);
-                height: toVw(25px);
+        .emojibar{
+                border: none;
+                background-color: #fff;
+                width: toVw(20px);
+                height: toVw(20px);
+                cursor: pointer;
+                &:hover{
+                    width: toVw(25px);
+                    height: toVw(25px);
+                }
+        }
+    }
+}
+
+.profile{
+    width: toVw(200px);
+    background-color: #fff;
+    opacity: 0.8;
+    position: relative;
+
+    img{
+        width: toVw(200px);
+        height: toVw(200px);
+    }
+
+    &__info{
+        padding-left: toVw(16.5px);
+        padding-top: toVw(19px);
+
+        h3{
+            font-weight: 700;
+            font-size: toVw(16px);
+            position: relative;
+            margin-bottom: toVw(3.5px);
+            &::after{
+                @include after();
+                background-color: $c-green;
+                border-radius: 50%;
+                width: toVw(6px);
+                height: toVw(6px);
+                left: toVw(90px);
+                top: toVw(8px);
+            }
+        }
+
+        p{
+            font-size: toVw(12px);
+            font-weight: 400;
+            color: #25272A;
+        }
+
+        &_contact-details{
+            margin-bottom: toVw(11px);
+        }
+
+        b{
+            font-weight: 400;
+            font-size: toVw(14px);
+            color: $c-black;
+        }
+
+        &_social-media{
+            width: toVw(106px);
+            height: toVw(27px);
+            @include flex-between();
+            margin-top: toVw(20px);
+            img{
+                width: toVw(22px);
+                height: toVw(22px);
+                &:hover{
+                    width: toVw(27px);
+                    height: toVw(27px);
+                }
+            }
+        }
+
+        &_button{
+            width: toVw(165px);
+            @include flex-between();
+            height: toVw(25px);
+            margin-top: toVw(18.5px);
+            margin-bottom: toVw(14px);
+            &-message{
+                width: toVw(133.5px);
+                background-color: $c-blue;
+                color: #FFFFFF;
+                font-weight: 700;
+                font-size: toVw(13px);
+                border: none;
+                border-radius: toVw(5px);
+                cursor: pointer;
+                &:hover{
+                    background-color: $c-dark-grey;
+                }
+            }
+
+            &-arrow-list{
+                width: toVw(25.5px);
+                background-color: $c-blue;
+                border: none;
+                border-radius: toVw(5px);
+                cursor: pointer;
+                position: relative;
+                &::after{
+                    content: '';
+                    position: absolute;
+                    border: toVw(5px) solid transparent;
+                    border-top: toVw(5px) solid #FFFFFF;
+                    left: toVw(8px);
+                    bottom: toVw(5px);
+                }
+                &:hover{
+                    background-color: $c-dark-grey;
+                }
+            }
+        }
+    }
+    &__button-arrow{
+        border: none;
+        background-color: #fff;
+        opacity: 0.8;
+        position: absolute;
+        right: toVw(23px);
+        bottom: toVw(28px);
+        cursor: pointer;
+        img{
+            width: toVw(10px);
+            height: toVw(16px);
+            &:hover{
+                width: toVw(15px);
+                height: toVw(21px);
             }
         }
     }
