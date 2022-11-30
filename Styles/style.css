@@ -364,32 +364,6 @@ a {
   right: 11vw;
   bottom: -0.4285714286vw;
 }
-.chat-message-section__content .emoji-in-sunglasses::after {
-  content: "";
-  display: block;
-  position: absolute;
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: cover;
-  background-image: url(../img/emoji-in-sunglasses.svg);
-  width: 1.1428571429vw;
-  height: 1.1428571429vw;
-  left: 31.7857142857vw;
-  top: 0.1428571429vw;
-}
-.chat-message-section__content .emoji-van::after {
-  content: "";
-  display: block;
-  position: absolute;
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: cover;
-  background-image: url(../img/emoji-van.svg);
-  width: 1.2142857143vw;
-  height: 1.1428571429vw;
-  left: 30vw;
-  top: 0.1428571429vw;
-}
 .chat .message-reaction {
   background-color: #fff;
   box-shadow: 0 0.1428571429vw 0.5714285714vw rgba(0, 0, 0, 0.14);

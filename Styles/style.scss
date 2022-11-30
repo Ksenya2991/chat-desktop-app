@@ -371,30 +371,6 @@ a{
                     bottom: toVw(-6px);
                 }
             }
-
-            .emoji-in-sunglasses{
-                &::after{
-                    @include after();
-                    @include bg-default();
-                    background-image: url(../img/emoji-in-sunglasses.svg);
-                    width: toVw(16px);
-                    height: toVw(16px);
-                    left: toVw(445px);
-                    top: toVw(2px);
-                }
-            }
-
-            .emoji-van{
-                &::after{
-                    @include after();
-                    @include bg-default();
-                    background-image: url(../img/emoji-van.svg);
-                    width: toVw(17px);
-                    height: toVw(16px);
-                    left: toVw(420px);
-                    top: toVw(2px);
-                }
-            }
         }
     }
 
